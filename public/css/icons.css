@@ -1,0 +1,43 @@
+/*
+ -- ICONS 32 ------------------------
+ */
+.icon-32 {
+	display:               inline-block;
+	width:                 32px;
+	height:                32px;
+	background:            url("../img/icons-32.svg");
+	background-position-y: 0;
+}
+.icon-32.active,
+.icon-32.with-hover:hover {
+	cursor:                pointer;
+	background-position-y: -32px;
+}
+.icon-32.dashboard { background-position-x: 0; }
+.icon-32.connections { background-position-x: -32px; }
+.icon-32.messages { background-position-x: -64px; }
+.icon-32.reload { background-position-x: -96px; }
+.icon-32.statistics { background-position-x: -128px; }
+.icon-32.profile { background-position-x: -160px; }
+/*
+ -- ICONS 28 ------------------------
+ */
+.icon-28 {
+	display:               inline-block;
+	width:                 28px;
+	height:                28px;
+	background:            url("../img/icons-28.svg");
+	background-position-y: 0;
+}
+.icon-28.active,
+.icon-28.with-hover:hover {
+	cursor:                pointer;
+	background-position-y: -28px;
+}
+.icon-28.debug { background-position-x: 0; }
+.icon-28.notif { background-position-x: -28px; }
+.icon-28.reload { background-position-x: -56px; }
+.icon-28.disconnect { background-position-x: -84px; }
+.icon-28.search { background-position-x: -112px; }
+.icon-28.close { background-position-x: -140px; }
+.icon-28.logout { background-position-x: -168px; }

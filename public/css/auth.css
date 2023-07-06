@@ -1,0 +1,87 @@
+#auth-page .invisible { opacity: 0 !important;}
+#auth-page label {
+	width: 100%;
+}
+#auth-page input.default {
+	width:     100%;
+	border:    1px solid #CCCCCC;
+	font-size: 14px;
+	padding:   8px 12px;
+}
+#auth-page input.default:focus {
+	border: 1px solid #3396c5
+}
+#auth-page .auth-title {
+	margin-bottom: 8px;
+	font-size:     20px;
+	font-weight:   bold;
+	color:         #000000;
+}
+#auth-page .auth-btn {
+	padding:          8px 40px;
+	margin:           8px 0 4px !important;
+	border:           1px solid #006898;
+	border-radius:    6px;
+	font-size:        16px;
+	background-color: #007bb6;
+	color:            #fff;
+	outline:          none;
+	cursor:           pointer;
+}
+#auth-page .auth-btn.secondary {
+	border:           1px solid #006898;
+	background-color: transparent;
+	color:            #007bb6;
+}
+#auth-page .auth-btn:not(:disabled):hover {background-color: #006799;}
+#auth-page .auth-btn.secondary:not(:disabled):hover {
+	color:            #FFFFFF;
+	background-color: #007bb6;
+}
+#auth-page .auth-btn:disabled {
+	cursor:  default;
+	opacity: .7;
+}
+#auth-page #auth-validation-description {
+	width:       100%;
+	font-size:   14px;
+	margin:      -4px 0 8px 0;
+	color:       red;
+	user-select: none;
+}
+#auth-page .login {
+	border:           1px solid #aaaaaa;
+	border-radius:    24px;
+	background-color: #FFFFFF;
+	position:         relative;
+	margin:           -60% -50%;
+	width:            300px;
+	padding:          16px 20px;
+}
+#auth-page .login-form {
+	display:        flex;
+	flex-direction: column;
+	align-items:    center;
+}
+#auth-page .login-all-page {
+	position: absolute;
+	left:     50%;
+	top:      50%;
+}
+#auth-page .login-form > * {
+	margin: 8px 0;
+}
+#auth-page .confirm-two-factor-side-by-side {
+	display:         flex;
+	justify-content: space-around;
+	width:           100%;
+}
+#auth-page .confirm-force-enable-mfa {
+	width:  650px;
+	margin: -50% -50%;
+}
+#auth-page .force-enable-mfa > * { margin: 20px 0;}
+#auth-page .force-enable-mfa {
+	min-width:        250px;
+	background-color: #fff;
+}
