@@ -67,9 +67,6 @@
 			return {
 				show:     show,
 				showAjax: (route, currentPage = "1", perPage = "10", search = "", sortField = "", sortOrder = "") => {
-					if ( ! websocket.isConnectionInit()) {
-						websocket.connect();
-					}
 					request.send(
 						route,
 						{
@@ -247,12 +244,12 @@
 		});
 	}
 
-	function showActionPopup($button, wpiToken = undefined) {
+	function showActionPopup($button, id = undefined, data = undefined) {
 		let $noscript = undefined;
-		if ($button.hasClass("js-debug-btn")) {
+		if ($button.hasClass("js-delete-user-btn")) {
+			$noscript = $("#delete-user-popup-noscript-container");
+		} else if ($button.hasClass("js-edit-user-btn")) {
 			$noscript = $("#debug-popup-noscript-container");
-		} else if ($button.hasClass("js-notif-btn")) {
-			$noscript = $("#send-notification-popup-noscript-container");
 		} else if ($button.hasClass("js-reload-btn")) {
 			$noscript = $("#reload-popup-noscript-container");
 		} else if ($button.hasClass("js-disconnect-btn")) {
@@ -261,8 +258,11 @@
 			return;
 		}
 		popup.showNoscript($noscript.data("title"), $noscript);
-		if (wpiToken !== undefined) {
-			popup.getPopup().data("wpi-token", wpiToken);
+		if (id !== undefined) {
+			popup.getPopup().data("data", id);
+		}
+		if (data !== undefined) {
+			popup.getPopup().data("data", data);
 		}
 	}
 </script>

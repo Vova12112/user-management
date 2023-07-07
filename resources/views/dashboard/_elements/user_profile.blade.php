@@ -1,6 +1,5 @@
 @php
 	use App\Models\User;
-	use WebsocketClient\ValuesObject\WebsocketPayloadType;
 	/*** @var User $authUser */
 @endphp
 <div class="profile-top">
@@ -40,23 +39,23 @@
 		</form>
 		<input type="button" class="js-change-password-button default-button default" value="Change password">
 	</div>
-	@if( $authUser->isConfirmedTwoFactor())
-		<div class="mfa-on-container">
-			<div class="mfa">
-				<h3>2FA Enabled</h3>
-				<div class="confirm-two-factor-side-by-side">
-					<input type="button" class="js-disable-mfa-button default-button default" value="Disable MFA">
-					<input type="button" class="js-codes-button default-button default" value="Show recovery codes">
-				</div>
-			</div>
-		</div>
-	@else
-		<div class="mfa">
-			MFA is disabled:
-			<input type="button" class="js-mfa-button default-button default" value="Enable MFA">
-		</div>
-	@endif
-	@if( $authUser->isRoot())
+{{--	@if( $authUser->isConfirmedTwoFactor())--}}
+{{--		<div class="mfa-on-container">--}}
+{{--			<div class="mfa">--}}
+{{--				<h3>2FA Enabled</h3>--}}
+{{--				<div class="confirm-two-factor-side-by-side">--}}
+{{--					<input type="button" class="js-disable-mfa-button default-button default" value="Disable MFA">--}}
+{{--					<input type="button" class="js-codes-button default-button default" value="Show recovery codes">--}}
+{{--				</div>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--	@else--}}
+{{--		<div class="mfa">--}}
+{{--			MFA is disabled:--}}
+{{--			<input type="button" class="js-mfa-button default-button default" value="Enable MFA">--}}
+{{--		</div>--}}
+{{--	@endif--}}
+{{--	@if( $authUser->isRoot())--}}
 		<div class="mfa-on-container">
 			<div class="mfa">
 				<h3>Users Invites </h3>
@@ -64,7 +63,7 @@
 					<input id="invite-user-button" type="button" class="default-button default" value="Invite new user">
 				</div>
 			</div>
-		</div>
+{{--		</div>--}}
 		<noscript id="invite-new-user-noscript-popup">
 			<div class="input-line right">
 				<label>
@@ -84,7 +83,7 @@
 					<input id="invite-confirm-password" type="password" name="password" class="default" placeholder="Your password">
 				</label>
 			</div>
-			<input id="confirm-invite-user-button" type="button" class="default-button default" value="Invite" disabled>
+			<input id="confirm-invite-user-button" type="button" class="default-button default" value="Invite">
 			<script type="text/javascript">
 				$(document).ready(function () {
 					const
@@ -153,22 +152,14 @@
 				});
 			});
 		</script>
-	@endif
+{{--	@endif--}}
 </div>
 <div class="profile-bottom"></div>
 <script type="text/javascript">
 	$(document).ready(function () {
-		$(document).unbind("{{ WebsocketPayloadType::WEBSOCKET_SERVER_DASHBOARD_CONNECTION_OPENED }}");
-		$(document).unbind("{{ WebsocketPayloadType::WEBSOCKET_SERVER_DASHBOARD_CONNECTION_REGISTERED }}");
-		$(document).unbind("{{ WebsocketPayloadType::WEBSOCKET_SERVER_DASHBOARD_CONNECTION_CLOSED }}");
-		$(document).unbind("{{ WebsocketPayloadType::WEBSOCKET_SERVER_DASHBOARD_MESSAGE_HANDLED }}");
-		$(document).unbind("{{ WebsocketPayloadType::WEBSOCKET_SERVER_DASHBOARD_ACTION_CHANGED }}");
 
 		let
 			$logoutButton = $(".js-logout-button"),
-			$enableMFAButton = $(".js-mfa-button"),
-			$disableMFAButton = $(".js-disable-mfa-button"),
-			$recoveryCodesButton = $(".js-codes-button"),
 			$changePasswordButton = $(".js-change-password-button"),
 			$currentPassword = $("#js-current-password"),
 			$newPassword = $("#js-new-password"),
@@ -177,15 +168,6 @@
 
 		$changePasswordButton.prop("disabled", true);
 
-		$enableMFAButton.on("click", function () {
-			popup.showAjax('{{ route('popup.enable-mfa') }}');
-		});
-		$disableMFAButton.on("click", function () {
-			popup.showAjax('{{ route('popup.disable-mfa') }}');
-		});
-		$recoveryCodesButton.on("click", function () {
-			popup.showAjax('{{ route('popup.show-two-factor-codes') }}');
-		});
 
 		function isPasswordValid() {
 			let
@@ -239,3 +221,4 @@
 	});
 
 </script>
+</div>

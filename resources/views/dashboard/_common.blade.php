@@ -18,22 +18,21 @@
 			<div class="menu-item" data-menu-action="connections">
 				<i class="js-menu-item-connections icon-32 dashboard with-hover active"></i>
 			</div>
-			<div class="menu-item" data-menu-action="message-logs">
-				<i class="js-menu-item-message-logs icon-32 messages with-hover"></i>
-			</div>
-			<div class="menu-item bottom profile-button" data-menu-action="profile">
+			<div class="menu-item bottom" data-menu-action="profile" style="margin-left: 5px;">
 				<i class="icon-32 profile with-hover"></i>
 			</div>
-			<div class="menu-item bottom" data-menu-action="reload">
-				<i class="icon-32 reload with-hover"></i>
-			</div>
+{{--			<div class="menu-item bottom" data-menu-action="reload">--}}
+{{--				<i class="icon-32 reload with-hover"></i>--}}
+{{--			</div>--}}
 		</div>
 		<div id="dashboard-content">
-			<div class="dashboard-title">User Management</div>
+			<div class="dashboard-title">User Menegement</div>
 			<div class="js-dashboard-table-wrapper dashboard-table-wrapper">
                 @include('dashboard._elements.users')
 			</div>
 		</div>
 		@include('dashboard._elements.scripts')
+		@include('dashboard._elements.popup.action_delete_user')
+		@include('dashboard._elements.popup.action_debug')
 	</div>
 @endsection
